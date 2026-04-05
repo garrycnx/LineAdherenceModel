@@ -16,6 +16,9 @@ build/
 .env
 .env*.local
 
+# claude code
+.claude/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
