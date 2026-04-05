@@ -383,7 +383,8 @@ export function runEngine(params: EngineParams): SchedulerOutput {
         const scheduled = scheduledCounts[wd]?.[row.slotLabel] ?? 0;
 
         // Each 30-min slot = 0.5 hours
-        reqHours += req * 0.5;
+        // Use requiredRaw (pre-shrinkage) to match what was uploaded by the user
+        reqHours += row.requiredRaw * 0.5;
         schedHours += scheduled * 0.5;
 
         const diff = scheduled - req;
