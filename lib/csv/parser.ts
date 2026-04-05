@@ -99,7 +99,7 @@ export function parseForecastCSV(text: string): ParsedCSVData | { error: string 
   const parsed = Papa.parse<Record<string, string>>(cleanText, {
     header: true,
     skipEmptyLines: true,
-    trimHeaders: true,
+    transformHeader: (h) => h.trim(),
   });
 
   if (parsed.errors.length > 0 && parsed.data.length === 0) {
@@ -223,7 +223,7 @@ export function parseStaffingCSV(
   const parsed = Papa.parse<Record<string, string>>(cleanText, {
     header: true,
     skipEmptyLines: true,
-    trimHeaders: true,
+    transformHeader: (h) => h.trim(),
   });
 
   if (parsed.errors.length > 0 && parsed.data.length === 0) {

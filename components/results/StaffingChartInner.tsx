@@ -78,7 +78,7 @@ export default function StaffingChartInner({
                     val,
                     name === 'required' ? 'Required' : 'Scheduled',
                   ]}
-                  labelFormatter={(label, payload) => {
+                  labelFormatter={(label, payload: Array<{ payload?: { fullName?: string } }>) => {
                     const item = payload?.[0]?.payload;
                     return item?.fullName ?? label;
                   }}
